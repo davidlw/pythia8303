@@ -134,8 +134,8 @@ ifeq ($(ROOT_USE),true)
 else
 	$(error Error: $@ requires ROOT)
 endif
-main92: $(PYTHIA) $$@.cc main92.so
-	$(CXX) $@.cc main92.so -o $@ -w $(CXX_COMMON) -Wl,-rpath,./\
+mainMuIC mainEIC main2PCorr: $(PYTHIA) $$@.cc $$@.so
+	$(CXX) $@.cc $@.so -o $@ -w $(CXX_COMMON) -Wl,-rpath,./\
 	 `$(ROOT_CONFIG) --cflags --glibs`
 
 # RIVET with optional ROOT (if RIVET, use C++14).
